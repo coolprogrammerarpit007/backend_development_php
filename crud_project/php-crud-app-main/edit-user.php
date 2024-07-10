@@ -1,7 +1,8 @@
+<?php 
+    include('./config/config.php');
 
 
-
-
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,15 +18,13 @@
     <section class="section">
         <h2>Edit User</h2>
 
-        <form action="edit-user.php?id=<?php echo $user['id'] ?>" method="post">
+        <form action="" method="post">
             <div class="container">
                 <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="username" required value="<?php echo $user['username'] ?>">
-
-                <?php
-                /* <label for="psw"><b>Password</b></label>
-                    <input type="text" placeholder="Enter Password" name="password" required value="<?php echo $user['password'] ?>">
-                */ ?>
+                <input type="text" placeholder="Enter Username" name="username" required value="">
+                <label for="psw"><b>Password</b></label>
+                <input type="text" placeholder="Enter Password" name="password" required value="">
+                 
 
                 <button type="submit" name="submit">Update</button>
             </div>

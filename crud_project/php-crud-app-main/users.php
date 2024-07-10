@@ -39,7 +39,7 @@
                         <td><?php echo $row['student_name']?></td>
                         <td><?php echo date('d-m-y H:i:A',strtotime($row['created_at']))?></td>
                         <td>
-                            <a href="#" class="button edit">Edit</a>
+                            <a href="edit-user.php?id=<?php echo $row['id']?>" class="button edit">Edit</a>
                             <a href="#" class="button delete">Delete</a>
                         </td>
                     </tr>
