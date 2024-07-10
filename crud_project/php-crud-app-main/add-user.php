@@ -1,9 +1,7 @@
 
 <?php 
 include("./config/config.php");
-include("./middleware.php");
-$_SESSION['name'] = 'Hello World!';
-// echo $_SESSION['name']; 
+include("./middleware.php"); 
 // form submit working, and storing the user into the database.
 // check if the form is submitted or not
 if(isset($_POST['submit'])){
