@@ -1,4 +1,11 @@
 
+<?php 
+    include("./config/config.php");
+
+    // get all the users 
+    $sql = "SELECT * FROM student";
+    $result = $conn->query($sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +31,24 @@
                 </tr>
             </thead>
             <tbody>
-                
+                <?php 
+                if($result->num_rows > 0){
+                    while($row = mysqli_fetch_assoc($result)){
+                    ?>
+                    <tr>
+                        <td><?php echo $row['student_name']?></td>
+                        <td><?php echo date('d-m-y H:i:A',strtotime($row['created_at']))?></td>
+                        <td>
+                            <a href="#" class="button edit">Edit</a>
+                            <a href="#" class="button delete">Delete</a>
+                        </td>
+                    </tr>
+                <?php }
+                } 
+                else{
+                    echo "<h1>No Data Found!</h1>";
+                }
+                ?>
             </tbody>
         </table>
 
