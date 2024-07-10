@@ -1,18 +1,18 @@
 
 <?php 
     include("./config/config.php");
-
     // Delete user from the database
     if(isset($_GET['id'])){
         extract($_GET);
         $sql = "DELETE FROM student WHERE id = ".$_GET['id'];
         $result = $conn->query($sql);
         if($result){
-            echo "Record has been deleted sucessfully!";
+            $_SESSION['sucess'] = "Record has been deleted sucessfully!";
         }
         else{
-            echo "Unsucessful Query Operation!";
+            $_SESSION['error'] = "Unfortunately, data can not be deleted!";    
         }
+        header('LOCATION:users.php');
     }
 
     // get all the users 

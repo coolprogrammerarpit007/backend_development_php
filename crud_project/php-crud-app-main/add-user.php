@@ -1,6 +1,8 @@
 
 <?php 
 include("./config/config.php");
+$_SESSION['name'] = 'Hello World!';
+// echo $_SESSION['name']; 
 // form submit working, and storing the user into the database.
 // check if the form is submitted or not
 if(isset($_POST['submit'])){
@@ -9,11 +11,12 @@ if(isset($_POST['submit'])){
     // query to insert user details into database
     $sql = "INSERT INTO student(student_name,password,created_at) VALUES('$username','$password','$date')";
     if($conn->query($sql)){
-        echo "User Sign up sucessfully!";
+        $_SESSION['sucess'] = "User has been created sucessfully!";
     }
     else{
-        echo "Something went wrong, signup can not be proceed!";
+        $_SESSION['error'] = "User Creation Failed!";    
     }
+    header('LOCATION:users.php');
 }
 
 

@@ -19,11 +19,12 @@
         // query to update user details into database
         $sql = "UPDATE student SET student_name = '$username' WHERE id = " . $_GET['id'];
         if($conn->query($sql)){
-            echo "User Data Updated sucessfully!";
+            $_SESSION['sucess'] = "User data has been updated sucessfully";
         }
         else{
-            echo "Something went wrong, data updation can not be proceed!";
+            $_SESSION['error'] = "User Data updation operation failed!";    
         }
+        header('LOCATION:users.php');
     }
 ?>
 <!DOCTYPE html>
