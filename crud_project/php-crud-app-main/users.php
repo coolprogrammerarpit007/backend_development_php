@@ -1,6 +1,7 @@
 
 <?php 
     include("./config/config.php");
+    include("./middleware.php");
     // Delete user from the database
     if(isset($_GET['id'])){
         extract($_GET);

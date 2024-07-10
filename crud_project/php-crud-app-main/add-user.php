@@ -1,6 +1,7 @@
 
 <?php 
 include("./config/config.php");
+include("./middleware.php");
 $_SESSION['name'] = 'Hello World!';
 // echo $_SESSION['name']; 
 // form submit working, and storing the user into the database.
@@ -8,6 +9,7 @@ $_SESSION['name'] = 'Hello World!';
 if(isset($_POST['submit'])){
     extract($_POST); // use to extrat all POST array data
     $date = date("Y-m-d H:i:s");
+    // $storing password in the encrypted form
     // query to insert user details into database
     $sql = "INSERT INTO student(student_name,password,created_at) VALUES('$username','$password','$date')";
     if($conn->query($sql)){

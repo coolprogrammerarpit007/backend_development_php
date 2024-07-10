@@ -1,4 +1,28 @@
+<?php
+    // User Functuanility
+include('./config/config.php');
+if(isset($_POST['submit'])){
+    extract($_POST); // use to extrat all POST array data
+    // $storing password in the encrypted form
+    // query to select user -> Login Form Submit query
+    $sql = "SELECT * FROM student WHERE student_name = '$username' AND password = $password";
+    $result = $conn->query($sql);
+    if($result->num_rows > 0){
+        echo "Sucessful";
+        $_SESSION['is_user_logged_in'] = true;
+        $_SESSION['user_data'] = mysqli_fetch_assoc($result);
+        header('LOCATION:users.php'); // redirect to the users.php
+        exit;
+    }
+    else{
+        $_SESSION['error'] = "Invalid Login Credantials";
+        include('./include/alert.php');
+    }
+}
 
+
+
+?>
 
 
 <!DOCTYPE html>

@@ -1,5 +1,6 @@
 <?php 
     include('./config/config.php');
+    include("./middleware.php");
     // Getting users data by users id
     if(isset($_GET['id'])){
         $sql = "SELECT * FROM student WHERE id= " . $_GET['id'] ;
@@ -48,10 +49,6 @@
             <div class="container">
                 <label for="uname"><b>Username</b></label>
                 <input type="text" placeholder="Enter Username" name="username" required value="<?php echo $user['student_name'] ?>">
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="password" required value="<?php echo $user['password'] ?>">
-                 
-
                 <button type="submit" name="submit">Update</button>
             </div>
         </form>
