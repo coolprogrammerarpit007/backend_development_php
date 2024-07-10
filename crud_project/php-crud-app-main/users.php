@@ -2,6 +2,19 @@
 <?php 
     include("./config/config.php");
 
+    // Delete user from the database
+    if(isset($_GET['id'])){
+        extract($_GET);
+        $sql = "DELETE FROM student WHERE id = ".$_GET['id'];
+        $result = $conn->query($sql);
+        if($result){
+            echo "Record has been deleted sucessfully!";
+        }
+        else{
+            echo "Unsucessful Query Operation!";
+        }
+    }
+
     // get all the users 
     $sql = "SELECT * FROM student";
     $result = $conn->query($sql);
@@ -40,7 +53,7 @@
                         <td><?php echo date('d-m-y H:i:A',strtotime($row['created_at']))?></td>
                         <td>
                             <a href="edit-user.php?id=<?php echo $row['id']?>" class="button edit">Edit</a>
-                            <a href="#" class="button delete">Delete</a>
+                            <a href="users.php?id=<?php echo $row['id']?>" class="button delete">Delete</a>
                         </td>
                     </tr>
                 <?php }
