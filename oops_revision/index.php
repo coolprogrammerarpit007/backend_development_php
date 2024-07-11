@@ -75,20 +75,52 @@
 
     // Abstract classes are classed where must be one method which is abstract which is only declared but it's implementation is done in the child class
 
+    // php does not has block scope only function scope.
+
     abstract class ParentClass{
-        abstract protected function prefix($name) : string;
+        abstract protected function prefixName($name) : string;
     }
 
     class ChildClass extends ParentClass{
-        public function prefix($name) : string{
+        public function prefixName($name) : string{
             if($name === 'John Doe'){
                 $prefix = 'MR. ';
             }
-            else if($name === 'John Doe'){
+            else if($name === 'Jane Doe'){
                 $prefix = 'MRs. ';
             }
             else{
-                $prefix =
+                $prefix = 'No Comments';
             }
+            return $prefix;
         }
     }
+
+
+    $child1 = new ChildClass();
+    $prefix = $child1->prefixName('Jane Doe');
+    // echo $prefix;
+
+    // Interfaces -> In Interfaces, the main differance b/w interface and abstract class is that in if class is interface then there is only methods not properties. In Interface method must be public cannot be private or protected whether in abstract it can be public or protected.
+
+
+    // Traits in php
+    // PHP only support single inheritance, but in many cases a class need to inherit many properties and methods then traits come in handy.
+    // with traits -> many methods and properties can be created which can be inherited by different classes
+
+
+    trait message{
+        public function msg(){
+            echo "Message generated!";
+        }
+    }
+
+    class MessageClass{
+        use message;
+    }
+
+    $msg1 = new MessageClass();
+    // $msg1->msg();
+
+    // what traits helps in multiple inheritance.
+    // static methods can be called directly without creating the object.
