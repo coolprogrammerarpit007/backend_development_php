@@ -124,3 +124,6 @@
 
     // what traits helps in multiple inheritance.
     // static methods can be called directly without creating the object.
+
+
+    
